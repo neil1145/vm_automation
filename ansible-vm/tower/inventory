@@ -1,0 +1,12 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_private_key_file=~/.ssh/ansible
+ansible_user=vagrant
+
+[kube-vm]
+kube-vm 192.168.56.15
+
+[kube-nodes]
+kube-node-1 192.168.56.13
+kube-node-2 192.168.56.14
+

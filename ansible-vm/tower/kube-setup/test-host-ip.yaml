@@ -1,0 +1,7 @@
+---
+- hosts: localhost 
+  become: true
+  tasks:
+  - name: Check varible print
+    debug: 
+      msg:  "{{ hostvars[groups['kube-nodes'][1]] }}"

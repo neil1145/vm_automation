@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="GitLab Community Edition (including NGINX, Postgres, Redis)"><meta property="og:site_name" content="Packagecloud"><meta property="og:type" content="website"><meta property="og:description" content="GitLab Community Edition (including NGINX, Postgres, Redis)"><meta property="og:image" content="https://gravatar.com/avatar/7ca844ab1a8b6536a2ed805ab7e0ed5d.png?s=1200&amp;d=retro"><meta property="og:title" content="ubuntu/jammy/gitlab-ce_17.1.7-ce.0_arm64.deb - gitlab/gitlab-ce · packages.gitlab.com">
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","description":"GitLab Community Edition (including NGINX, Postgres, Redis)"}</script>
+
+<title>ubuntu/jammy/gitlab-ce_17.1.7-ce.0_arm64.deb - gitlab/gitlab-ce · packages.gitlab.com</title>
+
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="RzVFUovCD2s0PR/nH42Iw41Q3jURb7cIajSI+Lt60FoDcE21Z4aXtqq6+BoHRkMog0MzhwDLUOFk2sli2HfAOg==" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/packs/_/assets/images/favicon-50091bcb5eaba1f5ea2ece7b30e0b074.ico">
+
+    <link rel="stylesheet" media="all" href="/assets/packs/package-460c19156c9ac3f970e868c73cc8e58e.css" />
+
+    
+
+    <style type="text/css" media="screen">
+      /* We need this to block out the FOUC from loading the angular app at the */
+      /* bottom the document. More here https://docs.angularjs.org/api/ng/directive/ngCloak */
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+      }
+    </style>
+    <script>
+      /* Include polyfills for older browsers -- Only checking for Symbol */
+       var modernBrowser = (
+         'Symbol' in window
+       );
+
+       if ( !modernBrowser ) {
+         var scriptElement = document.createElement('script');
+         scriptElement.async = false;
+         scriptElement.src = '/assets/packs/polyfills-26c0bfac53355a9fff57.js';
+         document.head.appendChild(scriptElement);
+       }
+     </script>
+  </head>
+  <body id="" class="onpremise logged-out" ng-app="packagecloud">
+
+    <nav class="navigation fixed sidenav">
+  <div class="navigation-wrapper">
+    <a class="logo" href="/" title="Home">
+      <span class="glyphicon glyphicon-cloud"></span>
+      <span class="glyphicon glyphicon-cloud small"></span>
+    </a>
+    <ul class="icons">
+    <li class="more "><a href="javascript:;"><span class="glyphicon glyphicon-list-alt"></span><div class="sub-text">Docs</div></a>
+      <ul class="submenu">
+        <li><a href="/docs">General Docs</a></li>
+        <li><a href="/docs/api">API Docs</a></li>
+        <li><a target="parent" href="http://www.rubydoc.info/gems/package_cloud/">CLI Docs</a></li>
+        <li><a href="/docs/security">Security Information</a></li>
+      </ul>
+    </li>
+    <li><a href="mailto:support@packagecloud.io"><span class="glyphicon glyphicon-bullhorn"></span><div class="sub-text">Help</div></a></li>
+    </ul>
+  </div>
+</nav>
+
+      <div id="contextual-sidebar" class="sidebar-container" contextual-sidebar>
+    <div class="sidebar-button-container">
+      <button class="btn primary"
+              ng-click="toggleMenu(model.opened)">
+        <span class="glyphicon"
+              ng-class="{'glyphicon-remove-circle': model.opened, 'glyphicon-list': !model.opened}"></span>
+      </button>
+    </div>
+    <div class="avatar-container">
+    <a href="/gitlab">
+      <img class="avatar" width="136px" height="136px" src="https://gravatar.com/avatar/7ca844ab1a8b6536a2ed805ab7e0ed5d.png?s=272&amp;d=retro" />
+</a>  <div class="user-name">
+    <a href="/gitlab">gitlab</a>
+  </div>
+</div>
+
+    <a class="btn primary" href="/gitlab/gitlab-ce">
+<div class="repo-name-with-icon">
+  <span class="glyphicon glyphicon-globe" title="Public"></span>
+  <span class="repo-name">
+    gitlab-ce
+  </span>
+</div>
+</a><nav class="repo-page-sidebar">
+  <ul class="sidenav">
+    <li><a href="/gitlab/gitlab-ce"><span class="glyphicon glyphicon-file"></span>Packages</a></li>
+    <li><a href="/gitlab/gitlab-ce/install"><span class="glyphicon glyphicon-download"></span>Installation</a></li>
+    <li class=><a href="/app/gitlab/gitlab-ce/search"><span class="glyphicon glyphicon-search"></span>Search</a></li>
+    <li><a href="/gitlab/gitlab-ce/mirror"><span class="glyphicon glyphicon-duplicate"></span>Mirroring</a></li>
+    <li><a href="/app/gitlab/gitlab-ce/gpg"><span class="glyphicon glyphicon-lock"></span>GPG</a></li>
+    <li class=><a href="/app/gitlab/gitlab-ce/stats"><span class="glyphicon glyphicon-stats"></span>Stats</a></li>
+  </ul>
+</nav>
+
+  </div>
+
+
+    <main class="main-content fixed-header">
+      <div class="top-nav">
+  <ul class="logged-out-links">
+    <li><a class="btn primary outline" href="/session/new">Login</a></li>
+  </ul>
+</div>
+
+      
+      <article class="package-page-details-container row"
+        ng-controller="ShowPackageDetailsCtrl"
+        ng-init="init('gitlab/gitlab-ce', false, false, [{&quot;date&quot;:&quot;Uploaded 2024-09-11&quot;,&quot;value&quot;:0},{&quot;date&quot;:&quot;2024-09-08 to 2024-09-15&quot;,&quot;value&quot;:15}], 15, '52b9e54357f462728048ac9e35ca7b4fd1196868de7a7955', 'deb', true)">
+  <div class="package-info-details col-md-12">
+    <div class="breadcrumbs">
+      <div class="package-path">
+        <span class="glyphicon glyphicon-globe" title="Public"></span>
+        <span><a class="username" href="/gitlab">gitlab</a> / <a class="reponame" href="/gitlab/gitlab-ce">gitlab-ce</a></span>
+        <span class="distro_version"> / ubuntu / jammy</span>
+        <span class="file_name"
+              ng-class="{'fadeout': hideFilenameBreadcrumb, 'fadein': !hideFilenameBreadcrumb}" ng-cloak> / gitlab-ce_17.1.7-ce.0_arm64.deb</span>
+      </div>
+      <div class="package-actions-container hide-mobile" ng-cloak>
+          <a href="https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/jammy/gitlab-ce_17.1.7-ce.0_arm64.deb/download.deb">
+            <span class="styled-label-badge">
+              <span class="label"><span class="glyphicon glyphicon-download-alt"></span></span>
+              <span class="count">Download</span>
+            </span>
+</a>      </div>
+    </div>
+    <div class="main-package-details">
+      <div class="col-md-8 pkg-title-container">
+        <h1 title="gitlab-ce_17.1.7-ce.0_arm64.deb">
+  gitlab-ce_17.1.7-ce.0_arm64.deb
+</h1>
+
+          <p class="short-description">GitLab Community Edition (including NGINX, Postgres, Redis)
+</p>
+
+        
+          <div class="checksums bordered-info">
+            <h3>Checksums</h3>
+            <table class="table-minimal">
+  <tbody>
+    <tr>
+      <td>
+        MD5
+      </td>
+      <td class="wb-bw">
+        13330859ac13a98bfc903db44c0f86dc
+      </td>
+    </tr>
+    <tr>
+      <td>
+        SHA1
+      </td>
+      <td class="wb-bw">
+        322906737a9f68fe3ea65b8d637be90729dcea79
+      </td>
+    </tr>
+    <tr>
+      <td>
+        SHA256
+      </td>
+      <td class="wb-bw">
+        e3cd5adcb9d07cee2ba44f2860be00b6bfed6410adbc2e9695e1b8787194c9da
+      </td>
+    </tr>
+    <tr>
+      <td>
+        SHA512
+      </td>
+      <td class="wb-bw">
+        b02acaf579e3626fb63e9acbfea45c21199177e23d49af962b85a283a927b54fdc5fbde5ce00195e6652e77a59f85dcecb4011f7e74b390a0ebf5295a46dd39b
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+          </div>
+        <section class="package-details">
+
+
+
+                <div class="bordered-info">
+                  <h3>Depends</h3>
+                  <ul>
+                    <li>openssh-server, perl, libatomic1</li>
+                  </ul>
+                </div>
+                <div class="bordered-info">
+                  <h3>Conflicts</h3>
+                  <ul>
+                    <li>gitlab-ee, gitlab-fips, gitlab</li>
+                  </ul>
+                </div>
+                <div class="bordered-info">
+                  <h3>Replaces</h3>
+                  <ul>
+                    <li>gitlab-ee, gitlab-fips, gitlab</li>
+                  </ul>
+                </div>
+
+        </section>
+      </div>
+      <article class="col-md-4 extra-details">
+            <section class="repo-install-callout hide-mobile">
+    <h5>Have you installed this repository?</h5>
+    <p>If not, run the installation script, or manually install the repository before installing this package</p>
+    <pre id="curl-instructions" data-clipboard-target="#curl-instructions" class="copy-button ws-pw wb-bw us-a">curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash</pre>
+    <div class="install-instructions"
+         ng-controller="InstallInstructionsCtrl"
+         ng-init="init('52b9e54357f462728048ac9e35ca7b4fd1196868de7a7955')"
+         ng-cloak>
+      <span class="modal-container"
+            ng-controller="GenericModalCtrl">
+        <label class="btn secondary info block" id="view_script_modal" for="view-script-modal"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;View script</label>
+<modal class="script-viewer" visible="showModal" name="view-script-modal">
+    <span id="curl-script-copy-button" class="copy-button btn primary outline" data-clipboard-target="#script-copy">copy</span>
+    <pre class="d-ib ws-pw wb-bw" id="script-copy">curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh</pre>
+  <pre class="install-script" hl-code><!-- script loaded by angular install-script service --></pre>
+</modal>
+</span>
+    </div>
+  </section>
+
+            <section class="install-info-container">
+    <h4>Install</h4>
+      <pre id="install-info-0"
+           data-clipboard-target="#install-info-0"
+           class="copy-button to-e us-a">sudo apt-get install gitlab-ce=17.1.7-ce.0</pre>
+  </section>
+<section class="install-info-container">
+  <h4>Uploaded</h4>
+  <span class="outline-badge size" title="2024-09-11 22:18:43 UTC">1 day ago</span>
+</section>
+<section class="install-info-container flex">
+  <div class="flex-1">
+    <h4>Package Size</h4>
+    <span class="outline-badge size">957 MB</span>
+  </div>
+    <div class="flex-1">
+      <h4>Installed Size</h4>
+      <span class="outline-badge size">2.82 GB</span>
+    </div>
+</section>
+
+          
+          <section class="download-stats-container pb-0" ng-hide="!showStats" ng-cloak>
+  <h4><span class="weekly-text">Downloads</span></h4>
+  <div class="flex p-r">
+    <div class="flex-auto pr-1">
+      <p class="outline-badge size dl-total" data-total="15">15</p>
+    </div>
+    <svg class="sparkline flex-none p-a b-0 r-0" width="220" height="44" stroke-width="3"></svg>
+  </div>
+</section>
+
+          <section class="wget-container">
+  <h4>wget</h4>
+  <pre id="wget-copy"
+       data-clipboard-target="#wget-copy"
+       class="copy-button to-e us-a wb-bw ws-pw">wget --content-disposition https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/jammy/gitlab-ce_17.1.7-ce.0_arm64.deb/download.deb</pre>
+</section>
+
+          
+            <section class="homepage-container">
+    <h4>Homepage</h4>
+    <a target="parent" class="wb-bw ws-n" href="https://about.gitlab.com/">
+      https://about.gitlab.com/
+</a>  </section>
+
+          
+          
+      </article>
+    </div>
+  </div>
+</article>
+
+    </main>
+
+    
+    
+    
+    
+    <script src="/assets/packs/onpremise_application-4b1164988ca1f034d9f7.js"></script>
+    
+    <!-- Only load the billing history js on the billing
+         history page and only after jquery ($) has loaded -->
+    
+    
+  </body>
+</html>
