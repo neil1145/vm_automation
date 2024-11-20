@@ -1,0 +1,11 @@
+---
+- hosts: kube_test_cont
+  vars:
+    - create_user_file: yes
+    - user: vagrant
+  tasks:
+    - name: create file for user
+      file:
+        path: /home/{{ user }}/test_file
+        state: touch
+      when: create_user_file

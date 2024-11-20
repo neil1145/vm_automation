@@ -1,0 +1,11 @@
+---
+- hosts: kube_test_cont
+  tasks:
+    - name: create user files in tmp dir
+      file:
+        path: /tmp/ansible-{{ item }}
+        state: touch
+      loop:
+        - john
+        - johnny
+        - jon

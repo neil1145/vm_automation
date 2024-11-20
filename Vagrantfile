@@ -12,8 +12,9 @@ VM_STAT = {
   "kube-node-1" => {ram: 1500, cpus: 2, ip: '192.168.56.13', vm_image: 'ubuntu/jammy64', host_port: 2724},
   "kube-node-2" => {ram: 1500, cpus: 2, ip: '192.168.56.14', vm_image: 'ubuntu/jammy64', host_port: 2725},
   "kube-vm" => {ram: 2048, cpus: 4, ip: '192.168.56.15', vm_image: 'ubuntu/jammy64', host_port: 2726},
-  #"test-node-1" => {ram: 1046, cpus: 2, ip: '192.168.56.18', vm_image: 'ubuntu/jammy64', host_port: 27257},
-  #"test-node-2" => {ram: 1046, cpus: 2, ip: '192.168.56.17', vm_image: 'ubuntu/jammy64', host_port: 27258}  
+  "kube-test-vm" => {ram: 2048, cpus: 4, ip: '192.168.56.19', vm_image: 'ubuntu/jammy64', host_port: 2729},
+  "test-node-1" => {ram: 1046, cpus: 2, ip: '192.168.56.18', vm_image: 'ubuntu/jammy64', host_port: 27257},
+  "test-node-2" => {ram: 1046, cpus: 2, ip: '192.168.56.17', vm_image: 'ubuntu/jammy64', host_port: 27258}  
 }
 
 # version 2
@@ -66,7 +67,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "gui-setup", type: "shell", path: dir + '/ansible-vm/install-gui.sh'
       
     # install docker & kubernetes on controller (kube-vm)
-    if 'kube-vm'.include?(vm_name)
+    if ['kube-vm', 'kube-test-vm'].include?(vm_name)
       #config.ssh.private_key_path = dir + '\.vagrant\machines\kube-vm\virtualbox\private_key'
       config.vm.provision "file", source: dir + '/ansible-vm/tower/ansible.pub', \
       destination: "/home/vagrant/.ssh/ansible.pub"
@@ -80,6 +81,13 @@ Vagrant.configure("2") do |config|
       destination: "/home/vagrant/.ssh/ansible.pub"
       config.vm.provision :shell, :inline => \
       "cat /home/vagrant/.ssh/ansible.pub >> /home/vagrant/.ssh/authorized_keys"
-    end  
+    end
+    
+    if ['test-node-1', 'test-node-2'].include?(vm_name)
+      config.vm.provision "file", source: dir + '/ansible-vm/tower/ansible.pub', \
+      destination: "/home/vagrant/.ssh/ansible.pub"
+      config.vm.provision :shell, :inline => \
+      "cat /home/vagrant/.ssh/ansible.pub >> /home/vagrant/.ssh/authorized_keys"
+    end
   end      
 end  

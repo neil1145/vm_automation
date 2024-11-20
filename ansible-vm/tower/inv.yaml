@@ -1,0 +1,46 @@
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_private_key_file: ~/.ssh/ansible.pk
+    ansible_user: vagrant
+  children:
+    kube_nodes:
+      hosts:
+        kube_node_1:
+          ansible_host: 192.168.56.13
+          
+        kube_node_2:
+          ansible_host: 192.168.56.14
+
+        test_node_1:
+          ansible_host: 192.168.56.18
+        
+        test_node_2:
+          ansible_host: 192.168.56.17
+    kube_vms:
+      hosts:
+        kube_test_vm:
+          ansible_host: 192.168.56.19
+        kube_vm:
+          ansible_host: 192.168.56.15
+        
+    kube_prod_cont:
+      hosts:
+        kube_vm:
+
+    kube_test_cont:
+      hosts:
+        kube_test_vm:
+        
+    kube_prod:
+      hosts:
+        kube_node_1:
+        kube_node_2: 
+        kube_vm:  
+             
+    kube_test:
+      hosts:
+        kube_test_vm:
+        test_node_1:
+        test_node_2: 
+    
