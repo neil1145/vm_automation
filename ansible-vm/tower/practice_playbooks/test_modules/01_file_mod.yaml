@@ -1,0 +1,17 @@
+---
+- hosts: kube_test_cont
+  become: yes
+  vars:
+    user: "{{ ansible_env.USER }}"
+  tasks:
+    - name: create a file
+      file:
+        path: /tmp/root_file
+        state: touch
+        mode: u=rw, g=r, o=r
+
+    - name: create user file
+      become_user: "{{ user }}"
+      file:
+        path: /tmp/{{ user }}_file
+        state: touch

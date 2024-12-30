@@ -17,6 +17,7 @@ all:
         
         test_node_2:
           ansible_host: 192.168.56.17
+          
     kube_cont_vms:
       hosts:
         kube_test_vm:

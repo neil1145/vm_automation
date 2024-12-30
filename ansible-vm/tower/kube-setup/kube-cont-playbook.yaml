@@ -1,5 +1,5 @@
 ---
-- hosts: kube-vm
+- hosts: kube_test_cont
   become: true
   tasks:
   - name: Install packages that allow apt to be used over HTTPS
