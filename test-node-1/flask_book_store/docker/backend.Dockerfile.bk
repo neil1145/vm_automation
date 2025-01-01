@@ -1,0 +1,28 @@
+FROM postgres
+
+# Install Python and required packages
+RUN apt-get update && \
+    apt-get install -y python3 python3-venv python3-pip && \
+    apt-get clean
+
+RUN mkdir -p /flask_db
+WORKDIR /flask_db
+
+# Copy necessary files
+COPY db.py .
+COPY db_setup.sql db_setup.sql
+COPY .env .env
+
+RUN psql -U postgres -c "CREATE DATABASE flask_db;"
+RUN psql -U postgres flask_db < db_setup.sql
+
+VOLUME /home/dev-infra/Learning/vm_automation/test-node-1/flask_book_store /flask_db
+EXPOSE 5432 54321
+
+# Set up Python environment
+RUN python3 -m venv venv && \
+    ./venv/bin/pip install psycopg2-binary python-dotenv
+
+RUN chmod +x db.py
+CMD ["./venv/bin/python3", "db.py"]
+

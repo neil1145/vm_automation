@@ -13,7 +13,7 @@ VM_STAT = {
   "kube-node-2" => {ram: 1500, cpus: 2, ip: '192.168.56.14', vm_image: 'ubuntu/jammy64', host_port: 2725},
   "kube-vm" => {ram: 2048, cpus: 4, ip: '192.168.56.15', vm_image: 'ubuntu/jammy64', host_port: 2726},
   "kube-test-vm" => {ram: 2048, cpus: 4, ip: '192.168.56.19', vm_image: 'ubuntu/jammy64', host_port: 2729},
-  "test-node-1" => {ram: 2048, cpus: 2, ip: '192.168.56.18', vm_image: 'ubuntu/jammy64', host_port: 27257},
+  "test-node-1" => {ram: 2568, cpus: 2, ip: '192.168.56.18', vm_image: 'ubuntu/jammy64', host_port: 27257},
   "test-node-2" => {ram: 2048, cpus: 2, ip: '192.168.56.17', vm_image: 'ubuntu/jammy64', host_port: 27258}  
 }
 
@@ -85,7 +85,7 @@ Vagrant.configure("2") do |config|
     
     if ['test-node-1', 'test-node-2'].include?(vm_name)
       print "#{info[:ip]}"
-      config.vm.network "forwarded_port", guest: 5000, host: 8080
+      config.vm.network "forwarded_port", guest: 5002, host: 8080
       config.vm.provision "file", source: dir + '/ansible-vm/tower/ansible.pub', \
       destination: "/home/vagrant/.ssh/ansible.pub"
       config.vm.provision :shell, :inline => \
