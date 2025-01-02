@@ -1,8 +1,9 @@
 version: '3.8'
-
 services:
   web:
-    image: s0x45ker/flaskstore_web:v1
+    build: 
+      context: ./frontend
+      dockerfile: frontend.Dockerfile
     ports:
       - "5000:5000"
     environment:
@@ -10,28 +11,39 @@ services:
       - DB_NAME=${DB_NAME}
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
-
-    depends_on:
-      - db
     volumes:
-      - ./flask_frontend:/app
+      - ./frontend:/app
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       - flask-network
+    restart: unless-stopped
 
   db:
-    image: s0x45ker/flaskstore_db:v1
+    build: 
+      context: ./backend
+      dockerfile: backend.Dockerfile
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD
     ports:
       - "5432:5432"
     volumes:
-      - ./postgress_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - flask-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-flask_user} -d ${DB_NAME:-flask_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
 volumes:
-  postgress_data:
+  postgres_data:
+    name: flask_book_store_data
 
 networks:
   flask-network:
+    name: flask_book_store_network
     driver: bridge

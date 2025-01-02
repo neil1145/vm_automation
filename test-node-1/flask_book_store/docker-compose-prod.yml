@@ -1,0 +1,57 @@
+version: '3.8'
+services:
+  web:
+    image: s0x45ker/flaskstore_web:v1
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME:-flask_db}
+      - DB_USERNAME=${DB_USERNAME:-flask_user}
+      - DB_PASSWORD=${DB_PASSWORD:-passwd}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - flask-network
+    restart: unless-stopped
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  db:
+    image: s0x45ker/flaskstore_db:v1
+    environment:
+      - POSTGRES_DB=${DB_NAME:-flask_db}
+      - POSTGRES_USER=${DB_USERNAME:-flask_user}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-passwd}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - flask-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-flask_user} -d ${DB_NAME:-flask_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+volumes:
+  postgres_data:
+    name: flask_book_store_data_prod
+
+networks:
+  flask-network:
+    name: flask_book_store_network_prod
+    driver: bridge
