@@ -14,7 +14,7 @@ VM_STAT = {
   "kube-vm" => {ram: 2048, cpus: 4, ip: '192.168.56.15', vm_image: 'ubuntu/jammy64', host_port: 2726},
   "kube-test-vm" => {ram: 2048, cpus: 4, ip: '192.168.56.19', vm_image: 'ubuntu/jammy64', host_port: 2729},
   "test-node-1" => {ram: 2568, cpus: 2, ip: '192.168.56.18', vm_image: 'ubuntu/jammy64', host_port: 27257},
-  "test-node-2" => {ram: 2048, cpus: 2, ip: '192.168.56.17', vm_image: 'ubuntu/jammy64', host_port: 27258}  
+  "test-node-2" => {ram: 2048, cpus: 2, ip: '192.168.56.17', vm_image: 'debian/bullseye64', host_port: 27258}  
 }
 
 # version 2
