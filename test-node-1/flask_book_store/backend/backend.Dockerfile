@@ -1,7 +1,7 @@
 FROM postgres
 
 # Copy initialization script
-COPY init.sql /docker-entrypoint-initdb.d/
+COPY backend/init.sql /docker-entrypoint-initdb.d/
 
 # Set required environment variables
 ENV POSTGRES_PASSWORD=passwd

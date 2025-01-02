@@ -4,16 +4,18 @@ FROM python:3.9.21-slim
 WORKDIR /app
 
 # Install dependencies
-COPY requirements.txt .
+COPY frontend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY app.py /app/
-COPY templates /app/templates/
+COPY frontend/app.py /app/
+COPY frontend/templates /app/templates/
+COPY frontend/.env .
 
 # Set environment variables
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=development
+ENV PYTHONPATH=/app
 
 EXPOSE 5000
 
