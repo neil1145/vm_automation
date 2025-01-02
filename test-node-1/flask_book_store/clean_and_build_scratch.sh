@@ -3,7 +3,7 @@
 sudo docker compose down
 
 #clean containers
-sudo docker rm -vf $(sudo docker ps -aq)
+sudo docker conatiner rm -vf $(sudo docker ps -aq)
 
 # clean images
 sudo docker rmi -f $(sudo docker images -aq)
