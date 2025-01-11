@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: s0x45ker/flaskstore_web:v1
+    image: s0x45ker/flask-book-store-web:v1
     ports:
       - "5000:5000"
     environment:
@@ -19,7 +19,7 @@ services:
       - flask-network
 
   db:
-    image: s0x45ker/flaskstore_db:v1
+    image: s0x45ker/flask-book-store-db:v1
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
